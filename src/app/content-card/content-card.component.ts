@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
-import { ContentList } from '../helper-files/content-list';
 
 @Component({
   selector: 'app-content-card',
@@ -11,8 +10,6 @@ export class ContentCardComponent implements OnInit {
   content1: Content;
   content2: Content;
   content3: Content;
-  contentList: ContentList = new ContentList();
-  output: string;
 
   constructor() { 
     this.content1 = {
@@ -44,11 +41,6 @@ export class ContentCardComponent implements OnInit {
       type: "Article",
       tags: ["#knowledge", "#education","#woohoo"]
     }
-
-    this.contentList.addContent(this.content1);
-    this.contentList.addContent(this.content2);
-    this.contentList.addContent(this.content3);
-    this.output = this.contentList.contentOutput(1);
   }
 
   ngOnInit(): void {

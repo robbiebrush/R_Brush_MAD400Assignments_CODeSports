@@ -1,0 +1,15 @@
+<div class="content" *ngFor="let content of contentArray; let first = first; index as i"
+        [ngClass]="{first: first}">
+    <h1>Title: {{ content.title }}</h1>
+    <h2>ID: {{ content.id }}</h2>
+    <h2>Description: {{ content.description }}</h2>
+    <p>Creator: {{ content.creator }}</p>
+    <p>Content Type: {{ content.type }}</p>
+    <p>Tags:</p>
+    <ul>
+        <li *ngFor="let tag of content.tags">{{ tag }}</li>
+    </ul>
+    <img [src] = content.imgURL (click)="outputContent(i)"/> 
+</div>
+
+    
