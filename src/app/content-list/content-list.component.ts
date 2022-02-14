@@ -13,8 +13,12 @@ export class ContentListComponent implements OnInit {
   content4: Content;
   content5: Content;
   content6: Content;
+  content7: Content;
   contentArray: Array<Content> = [];
   array: Array<Number> = [];
+  titleFound: string = "";
+  selector: string = "";
+  selected: string = "";
 
   constructor() { 
     this.content1 = {
@@ -53,7 +57,6 @@ export class ContentListComponent implements OnInit {
       description: "Content4 is awesome.",
       creator: "Robbie Brush",
       imgURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/447px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg",
-      type: "Article",
       tags: ["#knowledge", "#education","#woohoo"]
     }
 
@@ -63,7 +66,6 @@ export class ContentListComponent implements OnInit {
       description: "Content5 is awesome.",
       creator: "Robbie Brush",
       imgURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/447px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg",
-      type: "Article",
       tags: ["#knowledge", "#education","#woohoo"]
     }
 
@@ -73,15 +75,24 @@ export class ContentListComponent implements OnInit {
       description: "Content6 is awesome.",
       creator: "Robbie Brush",
       imgURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/447px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg",
-      type: "Article",
       tags: ["#knowledge", "#education","#woohoo"]
     }
+
+    this.content7 = {
+      id: 7,
+      title: "Content7",
+      description: "Content7 is awesome.",
+      creator: "Robbie Brush",
+      imgURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg/447px-Gutenberg_Bible%2C_Lenox_Copy%2C_New_York_Public_Library%2C_2009._Pic_01.jpg",
+      type: "Article",
+      tags: ["#knowledge7", "#education7","#woohoo7"]
+    }
     
-    this.array = [1, 2, 3, 4, 5 ,6]
+    this.array = [1, 2, 3, 4, 5 ,6 , 7]
   }
 
   ngOnInit(): void {
-    this.contentArray = [this.content1, this.content2, this.content3, this.content4, this.content5, this.content6];
+    this.contentArray = [this.content1, this.content2, this.content3, this.content4, this.content5, this.content6, this.content7];
   }
 
   outputContent(index: number) {
@@ -89,4 +100,18 @@ export class ContentListComponent implements OnInit {
     console.log(this.contentArray[index].title)
   }
 
+  titleFind(searchTitle: string) {
+    var output: string = "";
+    for (let content of this.contentArray) {
+        if (content.title == searchTitle) {
+            output = "Content exists!";
+            this.selector = "exists"
+            break;
+        } else {
+            output = "Content doesn't exist!"
+            this.selector = "notExists"
+        }
+      }
+      this.titleFound = output;
+  }
 }

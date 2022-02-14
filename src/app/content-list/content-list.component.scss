@@ -9,3 +9,23 @@ div.first {
     border-width: 2px;
     border-color: black;
 }
+
+div.article {
+    background-color: cadetblue;
+}
+ 
+div.blog {
+    background-color: chartreuse;
+}
+
+div.none {
+    background-color: coral;
+}
+
+p.exists {
+    color: green;
+}
+
+p.notExists {
+    color: red;
+}
