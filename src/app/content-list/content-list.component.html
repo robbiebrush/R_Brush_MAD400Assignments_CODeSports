@@ -1,49 +1,23 @@
 <input type="text" id="titleFinder" name="titleInput" #titleValue>
 <button (click)="titleFind(titleValue.value)">Find Title</button>
 <p [ngClass]="selector">{{ titleFound }}</p>
+
 <h1>Type: Article</h1>
-<div class="content article" *ngFor="let content of contentArray | contentTypePipe:'Article'; let first = first; index as i"
-        [ngClass]="{first: first}">
-        <h2>Title: {{ content.title }}</h2>
-        <p>ID: {{ content.id }}</p>
-        <p>Description: {{ content.description }}</p>
-        <p>Creator: {{ content.creator }}</p>
-        <p>Content Type: {{ content.type }}</p>
-        <p>Tags:</p>
-        <ul>
-            <li *ngFor="let tag of content.tags">{{ tag }}</li>
-        </ul>
-        <img [src] = content.imgURL (click)="outputContent(i)"/> 
+<div class="content article">
+        <app-content-card *ngFor="let content of contentArray | contentTypePipe:'Article'; let first = first"
+        [content]="content" [ngClass]="{first: first}"></app-content-card>
 </div>
 
 <h1>Type: Blog</h1>
-<div class="content blog" *ngFor="let content of contentArray | contentTypePipe:'Blog'; let first = first; index as i"
-        [ngClass]="{first: first}">
-        <h2>Title: {{ content.title }}</h2>
-        <p>ID: {{ content.id }}</p>
-        <p>Description: {{ content.description }}</p>
-        <p>Creator: {{ content.creator }}</p>
-        <p>Content Type: {{ content.type }}</p>
-        <p>Tags:</p>
-        <ul>
-            <li *ngFor="let tag of content.tags">{{ tag }}</li>
-        </ul>
-        <img [src] = content.imgURL (click)="outputContent(i)"/> 
+<div class="content blog">
+        <app-content-card *ngFor="let content of contentArray | contentTypePipe:'Blog'; let first = first"
+        [content]="content" [ngClass]="{first: first}"></app-content-card>
 </div>
 
 <h1>Type: None</h1>
-<div class="content none" *ngFor="let content of contentArray | contentTypePipe; let first = first; index as i"
-        [ngClass]="{first: first}">
-        <h2>Title: {{ content.title }}</h2>
-        <p>ID: {{ content.id }}</p>
-        <p>Description: {{ content.description }}</p>
-        <p>Creator: {{ content.creator }}</p>
-        <p>Content Type: {{ content.type }}</p>
-        <p>Tags:</p>
-        <ul>
-            <li *ngFor="let tag of content.tags">{{ tag }}</li>
-        </ul>
-        <img [src] = content.imgURL (click)="outputContent(i)"/> 
+<div class="content none">
+        <app-content-card *ngFor="let content of contentArray | contentTypePipe; let first = first"
+        [content]="content" [ngClass]="{first: first}"></app-content-card>   
 </div>
 
     
