@@ -3,9 +3,9 @@
 <p>ID: {{ content?.id }}</p>
 <p>Description: {{ content?.description }}</p>
 <p>Creator: {{ content?.creator }}</p>
-<p id='type'>Content Type: {{ content?.type }}</p>
+<p id='type'>Content Type: {{ content?.type ?? "None" }}</p>
 <p>Tags:</p>
 <ul>
-    <li appHoverAffect *ngFor="let tag of content?.tags">{{ tag }}</li>
+    <li appHoverAffect *ngFor="let tag of content?.tags">{{ tag ?? "None" }}</li>
 </ul>
 <img (click)="outputContent()" [src]="content?.imgURL ?? defaultImg">

@@ -1,8 +1,13 @@
+<app-create-content (newContentEvent)="addContentToList($event)"></app-create-content>
+
+<h1>Content</h1>
+
 <input type="text" id="titleFinder" name="titleInput" #titleValue>
 <button (click)="titleFind(titleValue.value)">Find Title</button>
 <p [ngClass]="selector">{{ titleFound }}</p>
 
 <h1>Type: Article</h1>
+
 <div class="content article">
         <app-content-card *ngFor="let content of contentArray | contentTypePipe:'Article'; let first = first"
         [content]="content" [ngClass]="{first: first}"></app-content-card>

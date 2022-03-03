@@ -85,4 +85,10 @@ export class ContentListComponent implements OnInit {
       }
       this.titleFound = output;
   }
+
+  addContentToList(newContentFromChild: Content) {
+    this.contentArray.push(newContentFromChild);
+    this.contentArray = Object.assign([], this.contentArray);
+    this.contentArray = [...this.contentArray];
+  }
 }
