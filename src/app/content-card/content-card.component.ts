@@ -9,9 +9,7 @@ import { Content } from '../helper-files/content-interface';
 export class ContentCardComponent implements OnInit {
 @Input() content?: Content;
 defaultImg: string = "https://piunikaweb.com/wp-content/uploads/2021/07/Call-of-Duty-COD-FI-new.png";
-  constructor() { 
-    
-  }
+  constructor() { }
 
   outputContent(): void {
     console.log("ID: ", this.content?.id);

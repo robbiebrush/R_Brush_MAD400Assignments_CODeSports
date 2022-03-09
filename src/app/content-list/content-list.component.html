@@ -4,19 +4,19 @@
 
 <h1>Type: Article</h1>
 <div class="content article">
-        <app-content-card *ngFor="let content of contentArray | contentTypePipe:'Article'; let first = first"
+        <app-content-card *ngFor="let content of contentList | contentTypePipe:'Article'; let first = first"
         [content]="content" [ngClass]="{first: first}"></app-content-card>
 </div>
 
 <h1>Type: Blog</h1>
 <div class="content blog">
-        <app-content-card *ngFor="let content of contentArray | contentTypePipe:'Blog'; let first = first"
+        <app-content-card *ngFor="let content of contentList | contentTypePipe:'Blog'; let first = first"
         [content]="content" [ngClass]="{first: first}"></app-content-card>
 </div>
 
 <h1>Type: None</h1>
 <div class="content none">
-        <app-content-card *ngFor="let content of contentArray | contentTypePipe; let first = first"
+        <app-content-card *ngFor="let content of contentList | contentTypePipe; let first = first"
         [content]="content" [ngClass]="{first: first}"></app-content-card>   
 </div>
 
