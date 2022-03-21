@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Content } from '../helper-files/content-interface';
 import { CODInfoService } from '../Services/codinfo.service';
 
@@ -7,6 +7,7 @@ import { CODInfoService } from '../Services/codinfo.service';
   templateUrl: './content-list.component.html',
   styleUrls: ['./content-list.component.scss']
 })
+
 export class ContentListComponent implements OnInit {
   contentList: Content[];
   titleFound: string = "";
@@ -18,10 +19,12 @@ export class ContentListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.codInfoService.getContentObs().subscribe(contentlist => {
+    this.codInfoService.getContent().subscribe(contentlist => {
       this.contentList = contentlist;
     });
   }
+
+
 
   titleFind(searchTitle: string) {
     var output: string = "";
@@ -38,3 +41,4 @@ export class ContentListComponent implements OnInit {
       this.titleFound = output;
   }
 }
+

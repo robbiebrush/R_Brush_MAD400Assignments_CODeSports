@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Content } from '../helper-files/content-interface';
 import { ContentList } from '../helper-files/contentDB';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CODInfoService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
-  getContent(): Content[] {
-    return ContentList;
+  getContent(): Observable<Content[]> {
+   return this.http.get<Content[]>("api/content");
   }
 
   getContentObs(): Observable<Content[]> {
@@ -21,4 +22,14 @@ export class CODInfoService {
   getSpecificContentObs(): Observable<Content> {
     return of(ContentList[0]);
   }
+
+  private httpOptions = {
+    headers: new HttpHeaders({ 'Content-type':
+    'application/json' })
+    };
+
+    addContent(newContentItem: Content): Observable<Content>{
+      return this.http.post<Content>("api/content",
+      newContentItem, this.httpOptions);
+    }
 }

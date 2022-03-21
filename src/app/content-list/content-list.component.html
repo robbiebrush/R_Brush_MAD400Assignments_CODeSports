@@ -1,3 +1,5 @@
+<app-modify-content-component [contentList]="contentList"></app-modify-content-component>
+
 <input type="text" id="titleFinder" name="titleInput" #titleValue>
 <button (click)="titleFind(titleValue.value)">Find Title</button>
 <p [ngClass]="selector">{{ titleFound }}</p>
