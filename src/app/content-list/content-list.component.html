@@ -1,7 +1,12 @@
 <app-modify-content-component [contentList]="contentList"></app-modify-content-component>
 
-<input type="text" id="titleFinder" name="titleInput" #titleValue>
-<button (click)="titleFind(titleValue.value)">Find Title</button>
+<mat-form-field>
+        <input matInput placeholder="Enter title" type="text" id="titleFinder" name="titleInput" #titleValue>
+</mat-form-field>
+
+<button mat-raised-button color="primary"
+(click)="titleFind(titleValue.value)">Find Title</button>
+
 <p [ngClass]="selector">{{ titleFound }}</p>
 
 <h1>Type: Article</h1>

@@ -1,23 +1,4 @@
-<h1>Add Content!</h1><br>
-
-<label for="titleInp">Title: </label>
-<input type="text" id="titleInp" #titleVal><br>
-
-<label for="descInp">Description: </label>
-<input type="text" id="descInp" #descVal><br>
-
-<label for="creatorInp">Creator: </label>
-<input type="text" id="creatorInp" #creatorVal><br>
-
-<label for="typeInp">Content Type: </label>
-<input type="text" id="typeInp" #typeVal><br>
-
-<label for="tagsInp">Tags: </label>
-<input type="text" id="tagsInp" #tagsVal><br>
-
-<label for="imgInp">Image URL: </label>
-<input type="text" id="imgInp" #imgVal><br><br>
-
-<button (click)="addContentToList(titleVal.value, descVal.value, creatorVal.value, typeVal.value, tagsVal.value, imgVal.value)">Add Content</button>
+<button mat-raised-button color="primary"
+(click)="openDialog()">Add Content</button>
 <br><br><br>
 

@@ -1,0 +1,28 @@
+<h1>Create Content</h1>
+
+<label for="idInp">ID: </label>
+<input type="text" id="idInp" name="idInput" readonly #id><br><br>
+
+<label for="titleInp">Title: </label>
+<input type="text" id="titleInp" name="titleInput" #title><br><br>
+
+<label for="descInp">Description: </label>
+<input type="text" id="descInp" name="descInput" #desc><br><br>
+
+<label for="creatorInp">Creator: </label>
+<input type="text" id="creatorInp" name="creatorInput" #creator><br><br>
+
+<label for="urlInp">Image URL (Optional): </label>
+<input type="text" id="urlInp" name="urlInput" #url><br><br>
+
+<label for="typeInp">Content Type (Optional): </label>
+<input type="text" id="typeInp" name="typeInput" #type><br><br>
+
+<label>Tags (Optional/ Seperate with ','): </label>
+<input type="text" id="tag1Inp" name="tag1Input" #tags><br><br>
+
+<button mat-raised-button color="primary"
+(click)="addContentToList(title.value, desc.value, creator.value, type.value, tags.value, url.value)">Add Content</button>
+
+<button mat-raised-button color="primary"
+(click)="onCancel()">Cancel</button>

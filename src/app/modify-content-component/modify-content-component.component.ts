@@ -1,5 +1,7 @@
 import { HttpHeaders } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { DialogComponent } from '../dialog/dialog.component';
 import { Content } from '../helper-files/content-interface';
 import { CODInfoService } from '../Services/codinfo.service';
 
@@ -10,21 +12,25 @@ import { CODInfoService } from '../Services/codinfo.service';
 })
 export class ModifyContentComponentComponent implements OnInit {
   @Input() contentList?: Content[];
-
-  constructor(private codInfoService: CODInfoService) { }
+  newContent?: Content;
+  constructor(private codInfoService: CODInfoService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
-  addContentToList(title: string, desc: string, creator: string, type: string, tags: string, img: string): void {
-    var allTags: string[] = tags.split(",");
-    
-    if (img == "") {
-      var newContent: Content = {title: title, description: desc, creator: creator, type: type, tags: allTags};
-    } else {
-      var newContent: Content = {title: title, description: desc, creator: creator, type: type, tags: allTags, imgURL: img};
+  openDialog(): void {
+
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.data = {
+      list: this.contentList
     }
+
+    const dialogRef = this.dialog.open(DialogComponent, dialogConfig);
+
+    dialogRef.afterClosed().subscribe(
+      data => this.codInfoService.addContent(data).subscribe(newServerContent => this.contentList!.push(newServerContent))
+    );
     console.log(this.contentList);
-    this.codInfoService.addContent(newContent).subscribe(newServerContent => this.contentList!.push(newServerContent));
   }
 }
