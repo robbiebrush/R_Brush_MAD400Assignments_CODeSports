@@ -17,8 +17,5 @@ export class AppComponent implements OnInit {
 
   
   ngOnInit(): void {
-    this.codInfoService.getSpecificContentObs().subscribe(spContent => {
-      this.spContentList[0] = spContent;
-    });
   }
 }

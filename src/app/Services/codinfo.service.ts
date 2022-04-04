@@ -19,8 +19,8 @@ export class CODInfoService {
     return of(ContentList);
   }
 
-  getSpecificContentObs(): Observable<Content> {
-    return of(ContentList[0]);
+  getSpecificContentObs(index: number): Observable<Content> {
+    return of(ContentList[index]);
   }
 
   private httpOptions = {

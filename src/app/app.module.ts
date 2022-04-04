@@ -15,6 +15,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DialogComponent } from './dialog/dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ContentDetailComponent } from './content-detail/content-detail.component';
+import { AppRoutingModule } from './app-routing.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ContentTypePipe,
     HoverAffectDirective,
     ModifyContentComponentComponent,
-    DialogComponent
+    DialogComponent,
+    ContentDetailComponent,
+    NotFoundComponent
   ],
   imports: [
     MatButtonModule,
@@ -37,7 +42,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       {
       dataEncapsulation: false,
       delay: 1000,
-      })
+      }),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
