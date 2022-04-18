@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Content } from './helper-files/content-interface';
 import { LogUpdateService } from './log-update.service';
 import { CODInfoService } from './Services/codinfo.service';
+import {LogUpdateService} from "./log-update.service";
 
 @Component({
   selector: 'app-root',
@@ -15,7 +16,8 @@ export class AppComponent implements OnInit {
   constructor(private codInfoService: CODInfoService, private logService: LogUpdateService) {
     this.spContentList = [];
    }
-    
+   
   ngOnInit(): void {
+    this.logService.init();
   }
 }

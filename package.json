@@ -1,9 +1,9 @@
 {
   "name": "learning-angular",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "scripts": {
-    "ng": "http-server -p 8080 -c-1 dist/RobbieBrushCOD",
-    "start": "ng serve",
+    "ng": "ng",
+    "start": "http-server -p 8080 -c-1 dist/RobbieBrushCOD",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

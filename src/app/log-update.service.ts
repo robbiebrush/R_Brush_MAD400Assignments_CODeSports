@@ -1,10 +1,12 @@
 import { Injectable } from '@angular/core';
-import { SwUpdate } from '@angular/service-worker';
+import {SwUpdate} from "@angular/service-worker";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogUpdateService {
+  private snackBar: MatSnackBar | undefined;
 
   constructor(private updates: SwUpdate) { }
 
@@ -16,12 +18,20 @@ export class LogUpdateService {
           ${event.version.hash}`);
           break;
         case 'VERSION_READY':
-          let snackBarRef = snackBar.open('Current app version: ' + event.currentVersion.hash + 
-          'New app version ready for use: ' + event.latestVersion.hash, 'Update');
-          
-          this.updates.activateUpdate().then(() =>
-            document.location.reload());
+
+          // @ts-ignore
+          let snackBarRef = this.snackBar.open('Update is ready', 'Update');
+
+          snackBarRef.afterDismissed().subscribe(() => {
+            console.log('The snackbar was dismissed');
+          });
+
+          snackBarRef.onAction().subscribe(() => {
+            console.log('Updating!');
+            this.updates.activateUpdate().then(() =>
+              document.location.reload());
+          });
           break;
-    } });
+      } });
   }
 }
